@@ -1,10 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UsersService } from '@zibat/users';
 
 @Component({
-  selector: 'zibat-root',
+  selector: 'eshop-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'eshop';
+
+  constructor(private usersService: UsersService) { }
+  ngOnInit() {
+    this.usersService.initAppSession();
+  }
 }
